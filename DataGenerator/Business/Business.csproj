@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+	  <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+		  <PrivateAssets>All</PrivateAssets> 
+	  </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ManagerServices\Abstracts\" />
+    <Folder Include="ManagerServices\Concretes\" />
+  </ItemGroup>
+
 </Project>

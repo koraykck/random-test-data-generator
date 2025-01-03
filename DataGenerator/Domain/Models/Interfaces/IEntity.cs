@@ -1,16 +1,14 @@
-﻿using Domain.Models.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Models
+namespace Domain.Models.Interfaces
 {
-    public abstract class BaseEntity : IEntity
+    public interface IEntity
     {
-
         [Key]
         public int ObjectId { get; set; }
         public DateTime CreatedDate { get; set; }
@@ -19,8 +17,6 @@ namespace Domain.Models
         public int? UpdatedBy { get; set; }
         public DateTime? DeletedDate { get; set; }
         public int? DeletedBy { get; set; }
-        public bool IsDeleted { get; set; } 
-
-
+        public bool IsDeleted { get; set; }
     }
 }
