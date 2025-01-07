@@ -33,6 +33,8 @@ namespace DataAccess.Context
             foreach (var fk in cascadeFKs)
                 fk.DeleteBehavior = DeleteBehavior.Restrict;
             base.OnModelCreating(builder);
+            builder.Entity<AppUser>().Ignore(x => x.ObjectId);
+
         }
 
         DbSet<AppUser> AppUsers { get; set; }
