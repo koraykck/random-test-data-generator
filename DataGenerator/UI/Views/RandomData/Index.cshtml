@@ -1,0 +1,77 @@
+﻿@{
+	Layout = "_Layout";
+}
+
+<!-- outer repeater -->
+<form class="repeater">
+    <fieldset>
+        <legend class="">Get Random Data</legend>
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th class="text-center col-4">Field Name</th>
+                    <th class="text-center col-4">Actions</th>
+                    <th class="text-center col-2">Random Field</th>
+                    <th class="text-center p-auto col-1">
+                        <button type="button" class="btn fa-solid fa-square-plus text-success fs-1" data-repeater-create>
+                            @* <i class="fa-solid fa-square-plus text-success fs-1"></i> *@
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody data-repeater-list="field-container">
+                <tr data-repeater-item class="field">
+                    <td class="">
+                        <select class="form-select" id="randomDataVariableType" name="fieldName">
+                           @*  <option>---</option>
+                            @foreach (var item in Model.Model)
+                            {
+                                <option value='@item.FieldInfoEntityID'>@item.FieldName</option>
+                            } *@
+                        </select>
+                    </td>
+                    <td class="text-center">
+                        kadın erkek vs seçim gerekirse
+                    </td>
+                    <td>
+                        Rastgele gelen veri buraya gelebilir
+                    </td>
+                    <td class="text-center p-auto">
+                        <button type="button" class="btn fa-solid fa-square-minus text-danger fs-1" data-repeater-delete>
+                            @* <i class="text-danger fa-solid fa-square-minus fs-1"></i> *@
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+        <div id="genel"></div>
+    </fieldset>
+</form>
+
+
+
+@section Scripts {
+	<script>
+
+
+		$(document).ready(function () {
+			$('.repeater').repeater({
+				// (Required if there is a nested repeater)
+				// Specify the configuration of the nested repeaters.
+				// Nested configuration follows the same format as the base configuration,
+				// supporting options "defaultValues", "show", "hide", etc.
+				// Nested repeaters additionally require a "selector" field.
+				repeaters: [{
+					// (Required)
+					// Specify the jQuery selector for this nested repeater
+					selector: '.inner-repeater'
+				}]
+			});
+		});
+	</script>
+}
