@@ -7,27 +7,28 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddMvc(config =>
-{
-    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-    config.Filters.Add(new AuthorizeFilter(policy));
-});
-builder.Services.AddAuthentication(
-    CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(x =>
-    {
-        x.Cookie.HttpOnly = true;
-        x.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+builder.Services.AddMvc();
+//builder.Services.AddMvc(config =>
+//{
+//    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+//    config.Filters.Add(new AuthorizeFilter(policy));
+//});
+//builder.Services.AddAuthentication(
+//    CookieAuthenticationDefaults.AuthenticationScheme)
+//    .AddCookie(x =>
+//    {
+//        x.Cookie.HttpOnly = true;
+//        x.ExpireTimeSpan = TimeSpan.FromMinutes(30);
 
-        x.LoginPath = new PathString("/Login");
-        x.SlidingExpiration = true;
-    }
-);
-builder.Services.AddSession();
+//        x.LoginPath = new PathString("/Login");
+//        x.SlidingExpiration = true;
+//    }
+//);
+//builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddDbContextService();
-builder.Services.AddSerilogService();
-builder.Services.AddIdentityService();
+//builder.Services.AddDbContextService();
+//builder.Services.AddSerilogService();
+//builder.Services.AddIdentityService();
 builder.Services.AddManagerService();
 
 var app = builder.Build();
