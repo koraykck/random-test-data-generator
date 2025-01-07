@@ -18,5 +18,6 @@ namespace Domain.Models.Interfaces
         public DateTime? DeletedDate { get; set; }
         public int? DeletedBy { get; set; }
         public bool IsDeleted { get; set; }
+        public bool IsDeleted7 { get; set; }
     }
 }
