@@ -1,4 +1,5 @@
 ﻿using Business.ManagerServices.Abstracts;
+using Business.ManagerServices.DTOs;
 using DataAccess.Context;
 using DataAccess.Repositories.Abstracts;
 using Domain.Models;
@@ -20,13 +21,27 @@ namespace Business.ManagerServices.Concretes
             _apRep = apRep;
         }
 
-        public async Task<bool> CreateUserAsync(AppUser item)
+        public async Task<bool> CreateUserAsync(RegisterDTO item)
         {
-            //todo : BL yazılır
+            var request = new AppUser
+            {
+                UserName = item.Username,
+                Email = item.Email,
+                PasswordHash = item.Password,
+                NameSurname = item.NameSurname,
+            };
 
-            return await _apRep.AddUser(item);
+            return await _apRep.AddUser(request);
         }
 
+        public Task<bool> SignInUser(string username, string password, bool isPersistent, bool lockoutOnFailure)
+        {
+            return _apRep.SignUserIn(username,password, isPersistent, lockoutOnFailure);
+        }
 
+        public Task<bool> SignOutUser()
+        {
+            return _apRep.SignOut();
+        }
     }
 }

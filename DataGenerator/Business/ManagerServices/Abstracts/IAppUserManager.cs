@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Business.ManagerServices.DTOs;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace Business.ManagerServices.Abstracts
 {
     public interface IAppUserManager : IManager<AppUser>
     {
-        Task<bool> CreateUserAsync(AppUser item);
+        Task<bool> CreateUserAsync(RegisterDTO item);
+        Task<bool> SignInUser(string username, string password, bool isPersistent, bool lockoutOnFailure);
+        Task<bool> SignOutUser();
     }
 }

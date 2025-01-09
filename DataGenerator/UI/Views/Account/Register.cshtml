@@ -1,0 +1,82 @@
+﻿@model UserRegisterModel;
+@{
+    ViewData["Title"] = "Register";
+}
+@if (User.Identity.IsAuthenticated)
+{
+
+    <div class="container text-center">
+        <h1>You already logged in. If you want to register another account, please exit first.</h1>
+        <a asp-action="Logout" asp-controller="User">
+            <div type="button" class="btn btn-primary text-center">Exit</div>
+        </a>
+    </div>
+}
+else
+{
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-md-6">
+
+                <div class="card px-5 pt-4" id="form1">
+
+                    <form method="post" asp-controller="Account" asp-action="Register">
+                        <div class="row">
+                            <h1 class="text-center mt-3">Register</h1>
+                            <div class="col-sm-12 mt-3">
+                                <div class="form-floating mt-3">
+                                    <input type="text" class="form-control" asp-for="NameSurname" id="floatingName" placeholder="Name Surname" />
+                                    <label for="floatingName">Name Surname</label>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-sm-12 mt-3">
+                                <div class="form-floating mt-3">
+                                    <input type="text" class="form-control" asp-for="Username" id="floatingUserName" placeholder="Username" />
+                                    <label for="floatingUserName">Username</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mt-3">
+                                <div class="form-floating mt-3">
+                                    <input type="email" class="form-control" id="floatingInput" asp-for="Email" placeholder="name@example.com">
+                                    <label for="floatingInput">Email address</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mt-3">
+
+
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="floatingPassword" asp-for="Password" placeholder="Password">
+                                    <label for="floatingPassword">Password</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mt-3">
+
+
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="floatingPassword" asp-for="ConfirmPassword" placeholder="Password">
+                                    <label for="floatingPassword">Confirm Password</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mt-4 d-grid">
+                                <input type="submit" value="Kayıt Ol" class="btn btn-dark">
+
+                            </div>
+                            <p class="text-center mt-3">Already have an account? <a asp-controller="Account" asp-action="Login">Login</a></p>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+}

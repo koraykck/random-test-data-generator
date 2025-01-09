@@ -39,7 +39,8 @@ namespace DataAccess.Context
         }
 
         DbSet<AppUser> AppUsers { get; set; }
-        DbSet<AppUserProfile> AppUserProfiles { get; set; }
+        DbSet<RandomData> RandomDatas { get; set; }
+        DbSet<RandomDataType> RandomDataTypes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

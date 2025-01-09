@@ -11,5 +11,7 @@ namespace DataAccess.Repositories.Abstracts
     {
 
         Task<bool> AddUser(AppUser item);
+        Task<bool> SignUserIn(string username, string password, bool isPersistent, bool lockoutOnFailure );
+        Task<bool> SignOut( );
     }
 }

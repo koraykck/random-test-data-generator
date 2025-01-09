@@ -25,7 +25,7 @@ namespace Business.DependencyResolvers
         {
             ServiceProvider provider = services.BuildServiceProvider();
             IConfiguration configuration = provider.GetService<IConfiguration>();
-            var log = Log.Logger.CreateLogger("BookStore", configuration.GetConnectionString("DefaultConnection"));
+            var log = Log.Logger.CreateLogger("RDG", configuration.GetConnectionString("DefaultConnection"));
             services.AddSingleton<Serilog.ILogger>(log);
 
             return services;

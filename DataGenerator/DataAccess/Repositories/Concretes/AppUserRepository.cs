@@ -14,24 +14,40 @@ namespace DataAccess.Repositories.Concretes
     public class AppUserRepository : BaseRepository<AppUser>, IAppUserRepository
     {
         UserManager<AppUser> _userManager;
+        SignInManager<AppUser> _signInManager;
 
-        public AppUserRepository(RDGContext db, UserManager<AppUser> userManager) : base(db)
+        public AppUserRepository(RDGContext db, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager) : base(db)
         {
 
             _userManager = userManager;
+            _signInManager = signInManager;
         }
         public async Task<bool> AddUser(AppUser item)
         {
             IdentityResult result = await _userManager.CreateAsync(item, item.PasswordHash);
 
             if (result.Succeeded) return true;
-            //List<IdentityError> errors = new List<IdentityError>();
-            //foreach (IdentityError error in result.Errors)
-            //{
-            //    errors.Add(error);
-            //}
+          
             return false;
 
         }
+
+        public async Task<bool> SignUserIn(string username, string password, bool isPersistent, bool lockoutOnFailure)
+        {
+            SignInResult result = await _signInManager.PasswordSignInAsync(username, password, isPersistent, lockoutOnFailure);
+
+            if (result.Succeeded) return true;
+           
+            return false;
+
+        }
+        public async Task<bool> SignOut()
+        {
+            await _signInManager.SignOutAsync();
+            return true;
+
+        }
+
+        
     }
 }
