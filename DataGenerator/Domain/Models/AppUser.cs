@@ -11,6 +11,8 @@ namespace Domain.Models
 {
     public partial class AppUser : IdentityUser<int>, IEntity
     {
+        public string NameSurname { get; set; }
+
         [Key]
         public int ObjectId { get; set; }      
         public DateTime CreatedDate { get; set; }
@@ -22,6 +24,5 @@ namespace Domain.Models
         public bool IsDeleted { get; set; }
 
 
-        public virtual AppUserProfile AppUserProfile { get; set; }
     }
 }
