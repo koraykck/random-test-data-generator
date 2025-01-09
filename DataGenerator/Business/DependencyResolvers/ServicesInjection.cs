@@ -1,6 +1,10 @@
 ﻿using Business.Logging;
+using Business.ManagerServices.Abstracts;
+using Business.ManagerServices.Concretes;
 using DataAccess.Configurations;
 using DataAccess.Context;
+using DataAccess.Repositories.Abstracts;
+using DataAccess.Repositories.Concretes;
 using Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -42,7 +46,13 @@ namespace Business.DependencyResolvers
 
         public static IServiceCollection AddManagerService(this IServiceCollection services)
         {
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped(typeof(IManager<>), typeof(BaseManager<>));
+            services.AddScoped<IAppUserRepository, AppUserRepository>();
+            services.AddScoped<IAppUserManager, AppUserManager>();
 
+            services.AddScoped<IRandomDataTypeManager, RandomDataTypeManager>();
+            services.AddScoped<IRandomDataManager, RandomDataManager>();
             return services;
         }
 
