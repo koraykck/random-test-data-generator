@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="container text-center">
+        <h1>You already logged in. If you wanna login to another account, please exit first.</h1>
+        <a asp-action="Logout" asp-controller="Account">
+            <div type="button" class="btn btn-primary text-center">Çıkış Yap</div>
+        </a>
+    </div>
+
+}
+else
+{
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-md-6">
+
+                <div class="card px-5 pt-4" id="form1">
+                    <h2 class="text-center mb-5 mt-2">Login</h2>
+                    <form asp-action="Login" asp-controller="Account" method="post">
+
+                        <div class="forms-group mb-4">
+
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInputGroup1" name="UserName" placeholder="Username">
+                                <label for="floatingInputGroup1">Username</label>
+                            </div>
+                        </div>
+
+                        <div class="forms-group mb-4">
+
+                            <div class="form-floating">
+                                <input type="password" class="form-control" name="Password" id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark w-100">Giriş</button>
+
+                    </form>
+                    <p class="mt-4 text-center">Don't you have an account? <a asp-controller="Account" asp-action="Register">Register</a> </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+}

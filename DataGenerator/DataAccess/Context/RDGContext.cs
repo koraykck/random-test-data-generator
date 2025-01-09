@@ -26,6 +26,8 @@ namespace DataAccess.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.AddGlobalFilter();
+            builder.Entity<AppUser>().Ignore(x => x.ObjectId);
+
             var cascadeFKs = builder.Model.GetEntityTypes()
                .SelectMany(t => t.GetForeignKeys())
                .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);
@@ -33,12 +35,12 @@ namespace DataAccess.Context
             foreach (var fk in cascadeFKs)
                 fk.DeleteBehavior = DeleteBehavior.Restrict;
             base.OnModelCreating(builder);
-            builder.Entity<AppUser>().Ignore(x => x.ObjectId);
 
         }
 
         DbSet<AppUser> AppUsers { get; set; }
-        DbSet<AppUserProfile> AppUserProfiles { get; set; }
+        DbSet<RandomData> RandomDatas { get; set; }
+        DbSet<RandomDataType> RandomDataTypes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

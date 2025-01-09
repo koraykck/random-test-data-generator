@@ -161,7 +161,7 @@ namespace Business.Middlewares
         }
         private Task CreateInternalException(HttpContext context, Exception exception)
         {
-            context.Response.Redirect("/Error/Index?sc=" + 500 + "&msg=" + "ERR5000");
+            context.Response.Redirect("/Home/Error");
             return Task.CompletedTask;
         }
         private async Task<string> FormatRequest(HttpRequest request, StreamReader reader)
