@@ -1,26 +1,23 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<form class="form repeater-default mt-5">
-    <div data-repeater-list="group-a">
+<form class="form repeater-default mt-5" asp-action="GenerateData" asp-controller="Home" method="post">
+    <div data-repeater-list="postData">
         <div data-repeater-item>
             <div class="row justify-content-between">               
                 <div class="col-md-5 col-sm-5">
-                    <input type="text" class="form-control" name="fieldName" id="fieldName" placeholder="Enter Field Name">
+                    <input type="text" class="form-control" name="ColName" @* id="ColName" *@ placeholder="Enter Field Name">
                 </div>
                 
                 <div class="col-md-5 col-sm-5 form-group">
-                    <select name="type" id="type" class="form-select">
-                        <option value="">Select Type</option>
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
-                        <option value="option4">Option 4</option>
-                        <option value="option5">Option 5</option>
+                    <select name="TypeId" class="form-select" asp-items="Model.Types">
+                        <option selected disabled>Select Type</option>
+
                     </select>
                 
-                    <div class="row g-3 mt-1 " hidden>
+                   @*  <div class="row g-3 mt-1 " hidden>
                         <div class="col-sm-4">
                             <input type="number" class="form-control" name="min" id="min" placeholder="Min">
                         </div>
@@ -30,7 +27,7 @@
                         <div class="col-sm">
                             <input type="number" class="form-control" name="decimal" id="decimal" placeholder="Decimal">
                         </div>
-                    </div>
+                    </div> *@
 
                 </div>
                 <div class="col-md-2 col-sm-5 form-group d-flex align-items-center justify-content-center">
@@ -47,6 +44,15 @@
             <button class="btn btn-primary" data-repeater-create type="button">
                 
                 Add Field
+            </button>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col p-0 mt-3">
+            <button class="btn btn-success" type="submit">
+                
+                Generate Data
             </button>
         </div>
     </div>

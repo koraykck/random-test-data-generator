@@ -30,7 +30,7 @@ namespace Business.ManagerServices.Concretes
                 PasswordHash = item.Password,
                 NameSurname = item.NameSurname,
             };
-
+            
             return await _apRep.AddUser(request);
         }
 
