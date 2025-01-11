@@ -21,12 +21,15 @@ namespace DataAccess.Context
             _savingChangesInterceptor = savingChangesInterceptor;
 
         }
-
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<RandomData> RandomDatas { get; set; }
+        public DbSet<RandomDataType> RandomDataTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.AddGlobalFilter();
             builder.Entity<AppUser>().Ignore(x => x.ObjectId);
+            builder.ApplyConfiguration(new RandomDataTypeConfiguration());
 
             var cascadeFKs = builder.Model.GetEntityTypes()
                .SelectMany(t => t.GetForeignKeys())
@@ -37,10 +40,7 @@ namespace DataAccess.Context
             base.OnModelCreating(builder);
 
         }
-
-        DbSet<AppUser> AppUsers { get; set; }
-        DbSet<RandomData> RandomDatas { get; set; }
-        DbSet<RandomDataType> RandomDataTypes { get; set; }
+     
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

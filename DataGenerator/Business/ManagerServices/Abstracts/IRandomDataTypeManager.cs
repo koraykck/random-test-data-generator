@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Business.ManagerServices.DTOs;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,7 @@ namespace Business.ManagerServices.Abstracts
 {
     public interface IRandomDataTypeManager : IManager<RandomDataType>
     {
+        Task<List<RandomDataTypeDTO>> GetAllTypes();
+
     }
 }

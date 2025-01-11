@@ -1,4 +1,5 @@
 ﻿using Business.ManagerServices.Abstracts;
+using Business.ManagerServices.DTOs;
 using DataAccess.Context;
 using Domain.Models;
 using System;
@@ -14,5 +15,19 @@ namespace Business.ManagerServices.Concretes
         public RandomDataTypeManager(RDGContext db) : base(db)
         {
         }
+
+        public async Task<List<RandomDataTypeDTO>> GetAllTypes()
+        {
+            var result =  _db.RandomDataTypes.Select(x => new RandomDataTypeDTO
+            {
+                TypeId = x.ObjectId,
+                Description = x.Description,
+                Key = x.Key,
+                Name = x.Name,
+            }).ToList();
+
+            return result;
+        }
+
     }
 }
