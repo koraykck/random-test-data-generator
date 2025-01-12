@@ -63,8 +63,10 @@ namespace Business.DependencyResolvers
             services.AddTransient<IntegerDataGenerator>();
             services.AddTransient<StringDataGenerator>();
             services.AddTransient<DateTimeDataGenerator>();
-            services.AddTransient<BooleanDataGenerator>(); // Boolean generator
+            services.AddTransient<BooleanDataGenerator>(); 
             services.AddTransient<GuidDataGenerator>();
+            services.AddTransient<MailDataGenerator>();
+            services.AddTransient<DbDataGenerator>();
 
             services.AddScoped<DataGeneratorService>();
             return services;

@@ -34,23 +34,39 @@ namespace UI.Controllers
                 Text = x.Name,
                 Value = x.TypeId.ToString(),
             }).ToList();
-
-
+            
             return View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> GenerateData(HomeViewModel model)
         {
-            var result = await _randomDataManager.GetRandomlyByIds(model.NumberOfData, model.postData.Select(x => x.TypeId).ToList());
-            var parameters = new Dictionary<string, object>
+            var resultModel = new RandomResultModel();
+            resultModel.Cols = new List<ColModel>();
+            resultModel.NumberOfRecords = model.NumberOfData;
+            var types = await _randomDataTypeManager.GetTypesByIds(model.postData.Select(x=> x.TypeId).ToList());           
+            foreach (var data in model.postData)
             {
-            { "min", 1 },
-            { "max", 100 }
-            };
-
-            var randomIntegers = _dataGeneratorService.GenerateData("Integer", 10, parameters);
-
+                var type = types.Where(x => x.TypeId == data.TypeId).FirstOrDefault();
+                ColModel colModel = new ColModel(); 
+                colModel.FieldName = data.ColName;
+                colModel.TypeId = type.TypeId;
+                colModel.TypeKey = type.TypeKey;
+                colModel.GeneratorType  = type.GeneratorKey;
+                var parameters = new Dictionary<string, object>
+                {
+                    {"typeId", colModel.TypeId }
+                };
+                if(colModel.GeneratorType == "db")
+                {
+                    colModel.Values = _dataGeneratorService.GenerateData("db", resultModel.NumberOfRecords, parameters);
+                }
+                else
+                {
+                    colModel.Values = _dataGeneratorService.GenerateData(colModel.TypeKey, resultModel.NumberOfRecords, parameters);
+                }
+                resultModel.Cols.Add(colModel);
+            }       
             return View();
         }
         public IActionResult Error()

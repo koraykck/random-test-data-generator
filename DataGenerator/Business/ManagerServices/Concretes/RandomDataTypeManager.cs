@@ -29,5 +29,16 @@ namespace Business.ManagerServices.Concretes
             return result;
         }
 
+        public async Task<List<DetailedTypesDTO>> GetTypesByIds(List<int> ids)
+        {
+            var result = _db.RandomDataTypes.Where(x=> ids.Contains(x.ObjectId)).Select(x => new DetailedTypesDTO
+            {
+                TypeId = x.ObjectId,
+                GeneratorKey = x.GeneratorType,
+                TypeKey = x.Key,
+            }).ToList();
+
+            return result;
+        }
     }
 }

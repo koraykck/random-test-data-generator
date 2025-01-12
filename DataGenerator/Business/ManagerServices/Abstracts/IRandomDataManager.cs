@@ -29,5 +29,12 @@ namespace Business.ManagerServices.Abstracts
         /// <returns>Result is all unique data list.</returns>
         Task<List<RandomDataDTO>> GetRandomlyByIds(int numberOfRecords, List<int> typeIds);
 
+        /// <summary>
+        /// This function gets one random data by given type.
+        /// </summary>
+        /// <param name="typeId">The ObjectId of desired random data type.</param>
+        /// <returns>Result is single random data.</returns>
+        Task<RandomDataDTO> GetOneRandomById(int typeId);
+
     }
 }

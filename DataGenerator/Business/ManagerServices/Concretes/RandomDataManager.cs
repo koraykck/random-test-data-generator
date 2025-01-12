@@ -32,7 +32,26 @@ namespace Business.ManagerServices.Concretes
 
             return false;
         }
-        
+
+        public async Task<RandomDataDTO> GetOneRandomById(int typeId)
+        {
+            var count = _db.RandomDatas.Where(x=> x.TypeId == typeId).Count();
+            var randomIndex = new Random().Next(count);
+
+            var randomRecord = _db.RandomDatas
+                .Where(x => x.TypeId == typeId)
+                .Skip(randomIndex)
+                .Take(1)
+                .Select(x=> new RandomDataDTO
+                {
+                     Value = x.Value,
+                     TypeId = x.TypeId,
+                })
+                .FirstOrDefault();
+
+            return randomRecord;
+        }
+
         public async Task<List<RandomDataDTO>> GetRandomlyById(int numberOfRecords, int typeId)
         {
             

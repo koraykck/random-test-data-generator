@@ -15,11 +15,13 @@ namespace Business.ManagerServices
         public DataGeneratorService(DataGeneratorStrategyFactory factory)
         {
             _factory = factory;
-            factory.RegisterStrategy("Integer", typeof(IntegerDataGenerator));
-            factory.RegisterStrategy("String", typeof(StringDataGenerator));
-            factory.RegisterStrategy("DateTime", typeof(DateTimeDataGenerator));
-            factory.RegisterStrategy("Boolean", typeof(BooleanDataGenerator));
-            factory.RegisterStrategy("Guid", typeof(GuidDataGenerator));
+            factory.RegisterStrategy("integer", typeof(IntegerDataGenerator));
+            factory.RegisterStrategy("string", typeof(StringDataGenerator));
+            factory.RegisterStrategy("dateTime", typeof(DateTimeDataGenerator));
+            factory.RegisterStrategy("boolean", typeof(BooleanDataGenerator));
+            factory.RegisterStrategy("guid", typeof(GuidDataGenerator));
+            factory.RegisterStrategy("mail", typeof(MailDataGenerator));
+            factory.RegisterStrategy("db", typeof(DbDataGenerator));
         }
 
         public List<object> GenerateData(string key, int numberOfRecords, Dictionary<string, object> parameters)
