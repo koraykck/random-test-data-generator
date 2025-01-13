@@ -32,17 +32,14 @@ namespace Business.Strategy.Concretes
                 var firstNameTypeId = _db.RandomDataTypes.Where(x => x.Key == "name").Select(x => x.ObjectId).FirstOrDefault();
 
                 var nameResult = _randomDataManager.GetOneRandomById(lastNameTypeId);
-                nameResult.Wait();
                 var lastNameResult = _randomDataManager.GetOneRandomById(firstNameTypeId);
-                lastNameResult.Wait();
 
-                string mail = nameResult.Result.Value + lastNameResult.Result.Value[0];
+                string mail = nameResult.Value + lastNameResult.Value[0];
 
                 var result = _randomDataManager.GetOneRandomById(typeId);
-                result.Wait();
 
-                result.Result.Value = mail.ToLower() + result.Result.Value;
-                return result.Result;
+                result.Value = mail.ToLower() + result.Value;
+                return result;
 
             }
         }

@@ -11,7 +11,7 @@ namespace Domain.Models
     {
         public int TypeId { get; set; }
 
-        public string Value { get; set; }
+        public string Value { get; set; } = string.Empty;
 
         public int? DependentRandomDataId { get; set; }
 

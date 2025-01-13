@@ -5,10 +5,13 @@ using Business.ManagerServices.Concretes;
 using Business.ManagerServices.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Text;
 using UI.Helpers;
 using UI.Models;
 using UI.Models.Home;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace UI.Controllers
 {
@@ -27,11 +30,11 @@ namespace UI.Controllers
             _dataGeneratorService = dataGeneratorService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var model = new HomeViewModel();
 
-            var allTypes = await _randomDataTypeManager.GetAllTypes();
+            var allTypes = _randomDataTypeManager.GetAllTypes();
             model.Types = allTypes.Select(x => new TypeModel
             {
                 TypeName = x.Name,
@@ -43,17 +46,17 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> GenerateData(HomeViewModel model)
+        public IActionResult GenerateData(HomeViewModel model)
         {
             var resultModel = new RandomResultModel();
             resultModel.Cols = new List<ColModel>();
             resultModel.NumberOfRecords = model.NumberOfData;
-            var types = await _randomDataTypeManager.GetTypesByIds(model.postData.Select(x=> x.TypeId).ToList());           
+            var types = _randomDataTypeManager.GetTypesByIds(model.postData.Select(x=> x.TypeId).ToList());           
             foreach (var data in model.postData)
             {
-                var type = types.Where(x => x.TypeId == data.TypeId).FirstOrDefault();
+                var type = types.Where(x => x.TypeId == data.TypeId).First();
                 ColModel colModel = new ColModel(); 
-                colModel.FieldName = data.ColName;
+                colModel.FieldName = data.ColName.Trim();
                 colModel.TypeId = type.TypeId;
                 colModel.TypeKey = type.TypeKey;
                 colModel.GeneratorType  = type.GeneratorKey;
@@ -90,11 +93,47 @@ namespace UI.Controllers
             .ToList();
 
             viewModel.Values = FormatHelper.ConvertToListOfStringDictionaries(formattedList);
-
+            HttpContext.Session.SetObject("rand-data", viewModel.Values);
+            TempData["success"] = "Datas are successfully generated";
             return View(viewModel);
         }
 
+        public IActionResult DownloadAsJSON()
+        {
+            var sessionData = GetSessionData();
 
+            if (sessionData != null){
+                string timeStamp = (DateTime.Now).ToString("yyyyMMddHHmm");
+                return File(Encoding.UTF8.GetBytes(FormatToJSONString(sessionData)), "application/json", $"{timeStamp}RGD.json");
+            }
+
+            return RedirectToAction("Error");
+        }
+
+        public IActionResult DownloadAsCSV()
+        {
+            var sessionData = GetSessionData();
+
+            if (sessionData != null)
+            {
+                string timeStamp = (DateTime.Now).ToString("yyyyMMddHHmm");
+                return File(Encoding.UTF8.GetBytes(FormatToCSV(sessionData)), "text/csv", $"{timeStamp}RGD.csv");
+            }
+
+            return RedirectToAction("Error");
+        }
+      
+        public IActionResult DownloadAsSQLScript()
+        {
+            var sessionData = GetSessionData();
+
+            if (sessionData != null)
+            {
+                string timeStamp = (DateTime.Now).ToString("yyyyMMddHHmm");
+                return File(Encoding.UTF8.GetBytes(FormatToSQLString(sessionData)), "application/sql", $"{timeStamp}RGD.sql");
+            }
+            return RedirectToAction("Error");
+        }
 
         public IActionResult Error()
         {
@@ -102,11 +141,43 @@ namespace UI.Controllers
             return View();
         }
 
-        
+        [NonAction]
+        private List<Dictionary<string, string>>? GetSessionData()
+        {
+            if (HttpContext.Session.GetObject<List<Dictionary<string, string>>>("rand-data") != null)
+            {
+                return HttpContext.Session.GetObject<List<Dictionary<string, string>>>("rand-data");
+            }
+            return null;
+        }
 
+        [NonAction]
+        private string FormatToJSONString(List<Dictionary<string, string>> model)
+        {
+            return JsonConvert.SerializeObject(model, Formatting.Indented);
+        }
 
+        [NonAction]
+        private string FormatToCSV(List<Dictionary<string, string>> model)
+        {
+            var csvString = new StringBuilder();
+            var fieldNames = string.Join(",", model[0].Keys);
+            csvString.AppendLine(fieldNames);
+            model.ForEach(x => { csvString.AppendLine(string.Join(",", x.Values)); });
+            return csvString.ToString();
+        }
 
-
+        [NonAction]
+        private string FormatToSQLString(List<Dictionary<string, string>> model)
+        {
+            var sqlString = new StringBuilder();
+            foreach (var row in model)
+            {
+                var values = string.Join(",", row.Values.Select(value => $"'{value}'"));
+                sqlString.AppendLine($"INSERT INTO Table ({string.Join(",", row.Keys)}) VALUES ({values});");
+            }
+            return sqlString.ToString();
+        }
 
     }
 }

@@ -44,7 +44,6 @@ namespace Business.Middlewares
             }
             catch (Exception ex)
             {
-                string exMessage = "İşlem sırasında bir hata ile karşılaşıldı. ";
                 await HandleExceptionAsync(context, ex);
 
 
@@ -68,7 +67,7 @@ namespace Business.Middlewares
                     requestBody = await FormatRequest(httpContext.Request, readerReqBody);//body lazım olursa 
                     LogContext.PushProperty("RequestBody", requestBody, false);
                     LogContext.PushProperty("RequestQueryString", httpContext.Request.QueryString, false);
-                    string formJson = null;
+                    string formJson = string.Empty;
                     //if (httpContext.Request.HasFormContentType)
                     //{
                     //    var form = await httpContext.Request.ReadFormAsync();
@@ -143,7 +142,7 @@ namespace Business.Middlewares
 
             LogDetailWithException logDetailWithException = new LogDetailWithException
             {
-                UserName = context.User.Identity?.Name,
+                UserName = context.User.Identity != null  ? context.User.Identity.Name ?? string.Empty : "unknown",
                 RequestMethod = context.Request.Method,
                 Exception = JsonConvert.SerializeObject(exception, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore }),
                 RequestPath = context.Request.Path,
@@ -173,18 +172,21 @@ namespace Business.Middlewares
         }
         private string GetUserIP(HttpContext httpContext)
         {
+            string ip = string.Empty;
             if (!string.IsNullOrEmpty(httpContext.Request.Headers["HTTP_X_FORWARDED_FOR"]))
             {
-                return httpContext.Request.Headers["HTTP_X_FORWARDED_FOR"].FirstOrDefault();
+                ip = httpContext.Request.Headers["HTTP_X_FORWARDED_FOR"].FirstOrDefault() ?? string.Empty ;
             }
             else if (!string.IsNullOrEmpty(httpContext.Request.Headers["X-Forwarded-For"]))
             {
-                return httpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault();
+                ip =  httpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? string.Empty;
             }
             else
             {
-                return httpContext.Connection.RemoteIpAddress.ToString();
+                ip =  httpContext.Connection.RemoteIpAddress != null ? httpContext.Connection.RemoteIpAddress.ToString() : string.Empty;
             }
+
+            return ip;
         }
 
 

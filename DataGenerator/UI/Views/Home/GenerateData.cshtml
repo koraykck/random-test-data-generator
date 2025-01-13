@@ -5,6 +5,13 @@
 *@
 @{
 }
+<div class="d-flex justify-content-end">
+    <a asp-action="DownloadAsCSV" asp-controller="Home" class="btn btn-sm btn-dark me-3">Download as CSV</a>
+    <a asp-action="DownloadAsSQLScript" asp-controller="Home" class="btn btn-sm btn-dark me-3">Download as SQL Script</a>
+    <a asp-action="DownloadAsJSON" asp-controller="Home" class="btn btn-sm btn-dark">Download as JSON</a>
+
+</div>
+<hr>
 <table class="table table-hover">
     <thead>
         <tr>
