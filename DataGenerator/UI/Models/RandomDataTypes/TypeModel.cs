@@ -4,6 +4,6 @@
     {
         public int TypeId { get; set; }
         public string TypeName { get; set; }
-        public string TypeKey { get; set; }
+        public string TypeKey { get; set; } = string.Empty;
     }
 }

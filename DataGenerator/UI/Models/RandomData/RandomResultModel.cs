@@ -17,6 +17,6 @@ namespace UI.Models
         public string TypeKey { get; set; }
         public int TypeId { get; set; }
         public string GeneratorType { get; set; }
-        public List<RandomDataDTO> Values { get; set; }
+        public List<RandomDataDTO> Values { get; set; } = new List<RandomDataDTO>();
     }
 }

@@ -21,12 +21,12 @@ namespace DataAccess.Configurations
         #region SavingChanges
         public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
         {
-            OperationOnEntities(eventData.Context);
+            OperationOnEntities(eventData.Context!);
             return base.SavingChanges(eventData, result);
         }
         public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default)
         {
-            OperationOnEntities(eventData.Context);
+            OperationOnEntities(eventData.Context!);
             return await base.SavingChangesAsync(eventData, result, cancellationToken);
         }
         #endregion

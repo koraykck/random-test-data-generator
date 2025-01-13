@@ -16,7 +16,7 @@ namespace Business.ManagerServices.Concretes
         {
         }
       
-        public async Task<bool> AddRangeRandomData(List<RandomDataDTO> list)
+        public bool AddRangeRandomData(List<RandomDataDTO> list)
         {
             
             var model = list.Select(x=> new RandomData
@@ -33,10 +33,11 @@ namespace Business.ManagerServices.Concretes
             return false;
         }
 
-        public async Task<RandomDataDTO> GetOneRandomById(int typeId)
+        public RandomDataDTO GetOneRandomById(int typeId)
         {
             var count = _db.RandomDatas.Where(x=> x.TypeId == typeId).Count();
             var randomIndex = new Random().Next(count);
+
 
             var randomRecord = _db.RandomDatas
                 .Where(x => x.TypeId == typeId)
@@ -47,16 +48,16 @@ namespace Business.ManagerServices.Concretes
                      Value = x.Value,
                      TypeId = x.TypeId,
                      TypeKey = x.Type.Key,
-                     DependentValue = x.DependentRandomDataId.HasValue ? x.DependentRandomData.Value : string.Empty,
+                     DependentValue = x.DependentRandomDataId.HasValue ? x.DependentRandomData!.Value : string.Empty,
                      DependentValueId = x.DependentRandomDataId.HasValue ? x.DependentRandomDataId.Value : null,
 
                 })
-                .FirstOrDefault();
+                .First();
 
             return randomRecord;
         }
 
-        public async Task<List<RandomDataDTO>> GetRandomlyById(int numberOfRecords, int typeId)
+        public List<RandomDataDTO> GetRandomlyById(int numberOfRecords, int typeId)
         {
             
             List<RandomDataDTO> randomRecords  = _db.RandomDatas
@@ -74,13 +75,13 @@ namespace Business.ManagerServices.Concretes
         }
 
         
-        public async Task<List<RandomDataDTO>> GetRandomlyByIds(int numberOfRecords, List<int> typeIds)
+        public List<RandomDataDTO> GetRandomlyByIds(int numberOfRecords, List<int> typeIds)
         {
             
             List<RandomDataDTO> randomRecords = new List<RandomDataDTO>();
 
             foreach (var type in typeIds) {
-                var result = await this.GetRandomlyById(numberOfRecords, type);
+                var result = this.GetRandomlyById(numberOfRecords, type);
 
                 randomRecords = randomRecords.Concat(result).ToList();
             }
