@@ -1,6 +1,9 @@
 ﻿using Business.Logging;
 using Business.ManagerServices.Abstracts;
 using Business.ManagerServices.Concretes;
+using Business.Strategy.Concretes;
+using Business.Strategy.Interfaces;
+using Business.Strategy;
 using DataAccess.Configurations;
 using DataAccess.Context;
 using DataAccess.Repositories.Abstracts;
@@ -16,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Business.ManagerServices;
 
 namespace Business.DependencyResolvers
 {
@@ -53,6 +57,18 @@ namespace Business.DependencyResolvers
 
             services.AddScoped<IRandomDataTypeManager, RandomDataTypeManager>();
             services.AddScoped<IRandomDataManager, RandomDataManager>();
+
+            // Register the strategy factory
+            services.AddSingleton<DataGeneratorStrategyFactory>();
+            services.AddTransient<IntegerDataGenerator>();
+            services.AddTransient<StringDataGenerator>();
+            services.AddTransient<DateTimeDataGenerator>();
+            services.AddTransient<BooleanDataGenerator>(); 
+            services.AddTransient<GuidDataGenerator>();
+            services.AddTransient<MailDataGenerator>();
+            services.AddTransient<DbDataGenerator>();
+
+            services.AddScoped<DataGeneratorService>();
             return services;
         }
 
