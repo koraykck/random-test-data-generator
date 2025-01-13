@@ -4,6 +4,7 @@ using DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(RDGContext))]
-    partial class RDGContextModelSnapshot : ModelSnapshot
+    [Migration("20250112211317_colAdded")]
+    partial class colAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -135,8 +138,8 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DependentRandomDataId")
-                        .HasColumnType("int");
+                    b.Property<string>("DependentRandomDataId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -155,8 +158,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ObjectId");
-
-                    b.HasIndex("DependentRandomDataId");
 
                     b.HasIndex("TypeId");
 
@@ -369,17 +370,11 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Domain.Models.RandomData", b =>
                 {
-                    b.HasOne("Domain.Models.RandomData", "DependentRandomData")
-                        .WithMany()
-                        .HasForeignKey("DependentRandomDataId");
-
                     b.HasOne("Domain.Models.RandomDataType", "Type")
                         .WithMany()
                         .HasForeignKey("TypeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("DependentRandomData");
 
                     b.Navigation("Type");
                 });

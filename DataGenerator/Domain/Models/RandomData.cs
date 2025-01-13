@@ -13,7 +13,12 @@ namespace Domain.Models
 
         public string Value { get; set; }
 
+        public int? DependentRandomDataId { get; set; }
+
         [ForeignKey("TypeId")]
         public  RandomDataType Type { get; set; }
+
+        [ForeignKey("DependentRandomDataId")]
+        public RandomData? DependentRandomData { get; set; }
     }
 }

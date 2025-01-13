@@ -12,7 +12,7 @@ namespace Business.ManagerServices.Concretes
 {
     public class BaseManager<T> : IManager<T> where T : class,IEntity
     {
-        RDGContext _db;
+        public RDGContext _db;
         public BaseManager(RDGContext db)
         {
             _db = db;

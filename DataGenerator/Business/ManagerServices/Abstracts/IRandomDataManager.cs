@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Business.ManagerServices.DTOs;
+using Domain.Models;
 using Domain.Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,30 @@ namespace Business.ManagerServices.Abstracts
 {
     public interface IRandomDataManager : IManager<RandomData>
     {
+        Task<bool> AddRangeRandomData(List<RandomDataDTO> list);
+
+        /// <summary>
+        /// This function gets random data by given type and number of records. 
+        /// </summary>
+        /// <param name="numberOfRecords">The number of desired random data</param>
+        /// <param name="typeId">The ObjectId of desired random data type</param>
+        /// <returns>Result is all unique data list.</returns>
+        Task<List<RandomDataDTO>> GetRandomlyById(int numberOfRecords, int typeId);
+
+        /// <summary>
+        /// This function gets random data by given types and number of records.
+        /// </summary>
+        /// <param name="numberOfRecords">The number of desired random data</param>
+        /// <param name="typeIds">The ObjectId list of desired random data types.</param>
+        /// <returns>Result is all unique data list.</returns>
+        Task<List<RandomDataDTO>> GetRandomlyByIds(int numberOfRecords, List<int> typeIds);
+
+        /// <summary>
+        /// This function gets one random data by given type.
+        /// </summary>
+        /// <param name="typeId">The ObjectId of desired random data type.</param>
+        /// <returns>Result is single random data.</returns>
+        Task<RandomDataDTO> GetOneRandomById(int typeId);
 
     }
 }
