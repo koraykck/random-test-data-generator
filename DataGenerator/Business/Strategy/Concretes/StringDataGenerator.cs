@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Business.ManagerServices.DTOs;
 using Business.Strategy.Interfaces;
 
 namespace Business.Strategy.Concretes
@@ -11,7 +12,7 @@ namespace Business.Strategy.Concretes
     {
         private Random _random = new Random();
      
-        public object GenerateRandomData(Dictionary<string, object> parameters)
+        public RandomDataDTO GenerateRandomData(Dictionary<string, object> parameters)
         {
             int length = (int)parameters["length"];
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -20,7 +21,17 @@ namespace Business.Strategy.Concretes
             {
                 stringChars[i] = chars[_random.Next(chars.Length)];
             }
-            return new string(stringChars);
+
+            var result = new RandomDataDTO
+            {
+                TypeKey = "string",
+                TypeId = 0,
+                DependentValue = null,
+                DependentValueId = null,
+                Value = new string(stringChars),
+            };
+
+            return result;
         }
     }
 }

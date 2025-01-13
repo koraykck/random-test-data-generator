@@ -1,4 +1,5 @@
 ﻿using Business.ManagerServices.Abstracts;
+using Business.ManagerServices.DTOs;
 using Business.Strategy.Interfaces;
 using DataAccess.Context;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,7 @@ namespace Business.Strategy.Concretes
             _serviceProvider = serviceProvider;
         }
 
-        public object GenerateRandomData(Dictionary<string, object> parameters)
+        public RandomDataDTO GenerateRandomData(Dictionary<string, object> parameters)
         {
 
             int typeId = (int)parameters["typeId"];

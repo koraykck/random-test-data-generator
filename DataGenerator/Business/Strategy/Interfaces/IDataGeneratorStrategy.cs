@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.ManagerServices.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Business.Strategy.Interfaces
 {
     public interface IDataGeneratorStrategy
     {
-        object GenerateRandomData(Dictionary<string, object> parameters);
+        RandomDataDTO GenerateRandomData(Dictionary<string, object> parameters);
     }
 }

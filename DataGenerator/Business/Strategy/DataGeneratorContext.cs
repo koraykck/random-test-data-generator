@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Business.ManagerServices.DTOs;
 using Business.Strategy.Interfaces;
 
 namespace Business.Strategy
@@ -16,12 +17,14 @@ namespace Business.Strategy
             _strategy = strategy;
         }
 
-        public List<object> GenerateRandomData(int numberOfRecords, Dictionary<string, object> parameters)
+        public List<RandomDataDTO> GenerateRandomData(int numberOfRecords, Dictionary<string, object> parameters)
         {
-            List<object> data = new List<object>();
+            List<RandomDataDTO> data = new List<RandomDataDTO>();
             for (int i = 0; i < numberOfRecords; i++)
             {
+
                 data.Add(_strategy.GenerateRandomData(parameters));
+
             }
             return data;
         }

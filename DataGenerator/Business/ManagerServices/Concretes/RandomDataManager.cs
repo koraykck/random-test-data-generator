@@ -46,6 +46,10 @@ namespace Business.ManagerServices.Concretes
                 {
                      Value = x.Value,
                      TypeId = x.TypeId,
+                     TypeKey = x.Type.Key,
+                     DependentValue = x.DependentRandomDataId.HasValue ? x.DependentRandomData.Value : string.Empty,
+                     DependentValueId = x.DependentRandomDataId.HasValue ? x.DependentRandomDataId.Value : null,
+
                 })
                 .FirstOrDefault();
 

@@ -1,5 +1,6 @@
 ﻿using Business.ManagerServices.Abstracts;
 using Business.ManagerServices.Concretes;
+using Business.ManagerServices.DTOs;
 using Business.Strategy.Interfaces;
 using DataAccess.Context;
 using Domain.Models;
@@ -20,7 +21,7 @@ namespace Business.Strategy.Concretes
             _serviceProvider = serviceProvider;
         }
 
-        public object GenerateRandomData(Dictionary<string, object> parameters)
+        public RandomDataDTO GenerateRandomData(Dictionary<string, object> parameters)
         {
             int typeId = (int)parameters["typeId"];
             using (var scope = _serviceProvider.CreateScope())

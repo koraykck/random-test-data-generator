@@ -12,21 +12,36 @@
                 </div>
                 
                 <div class="col-md-5 col-sm-5 form-group">
-                    <select name="TypeId" class="form-select" asp-items="Model.Types">
+                    <select name="TypeId" class="form-select typeSelect" onchange="checkType(this)">
                         <option selected disabled>Select Type</option>
+                        @foreach(var type in Model.Types){
+                            <option value="@type.TypeId" data-key="@type.TypeKey">@type.TypeName</option>
 
+                        }
                     </select>
                 
-                   @*  <div class="row g-3 mt-1 " hidden>
-                        <div class="col-sm-4">
+                    <div class="row g-3 mt-1 hidden-element" data-value="integer" style="display: none;">
+                        <div class="col-sm-6">
                             <input type="number" class="form-control" name="min" id="min" placeholder="Min">
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm-6">
                             <input type="number" class="form-control" name="max" id="max" placeholder="Max">
+                        </div>                      
+                    </div>
+                    
+                    <div class="row g-3 mt-1 hidden-element" data-value="datetime" style="display: none;">
+                        <div class="col-sm-6">
+                            <input type="date" class="form-control" name="start" placeholder="End Date">
                         </div>
-                        
-                    </div> *@
-
+                        <div class="col-sm-6">
+                            <input type="date" class="form-control" name="end" placeholder="Start Date">
+                        </div>                      
+                    </div>
+                    <div class="row g-3 mt-1 hidden-element" data-value="string" style="display: none;">
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" name="length" placeholder="Length of the String">
+                        </div>                        
+                    </div>
                 </div>
                 <div class="col-md-2 col-sm-5 form-group d-flex align-items-center justify-content-center">
                     <button class="btn btn-danger btn-sm fs-5" data-repeater-delete type="button">
@@ -60,17 +75,31 @@
 </form>
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.min.js" integrity="sha512-foIijUdV0fR0Zew7vmw98E6mOWd9gkGWQBWaoA1EOFAx+pY+N8FmmtIYAVj64R98KeD2wzZh1aHK0JSpKmRH8w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
-        // form repeater Initialization
-        $('.repeater-default').repeater({
-            show: function () {
-                $(this).slideDown();
-            },
-            hide: function (deleteElement) {
-               
+        function checkType(selectElement) {
+            // Seçili değeri al
+            var selectedValue = $(selectElement).find(":selected").data("key");
+
+            $(selectElement).siblings(".hidden-element").hide(); // Hepsini gizle
+            $(selectElement).siblings(`.hidden-element[data-value="${selectedValue}"]`).show();           
+        }
+        $(document).ready(function () {         
+            // form repeater Initialization
+            $('.repeater-default').repeater({
+                show: function () {
+                    $(this).slideDown();
+                },
+                hide: function (deleteElement) {
+
                     $(this).slideUp(deleteElement);
-                
-            }
+
+                }
+            });
+
         });
+       
+        
+
     </script>
 }

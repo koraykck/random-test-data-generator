@@ -1,8 +1,12 @@
-﻿namespace UI.Models
+﻿using Business.ManagerServices.DTOs;
+
+namespace UI.Models
 {
     public class RandomResultModel
     {
         public int NumberOfRecords { get; set; }
+
+        public List<string> GivenTypes { get; set; }
 
         public List<ColModel> Cols {  get; set; }  
     }
@@ -13,6 +17,6 @@
         public string TypeKey { get; set; }
         public int TypeId { get; set; }
         public string GeneratorType { get; set; }
-        public List<object> Values { get; set; }
+        public List<RandomDataDTO> Values { get; set; }
     }
 }

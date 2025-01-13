@@ -1,0 +1,33 @@
+﻿@using UI.Models.Home
+@model DisplayModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            @foreach (var fieldName in Model.FieldNames)
+            {
+                <th >@fieldName</th>
+
+            }            
+        </tr>
+    </thead>
+    <tbody> 
+
+        @foreach (var row in Model.Values)
+        {
+            <tr>
+            @foreach (var fieldName in Model.FieldNames)
+            {
+                <td>@row[fieldName]</td>
+
+            }
+            </tr>
+
+        }
+
+    </tbody>
+</table>

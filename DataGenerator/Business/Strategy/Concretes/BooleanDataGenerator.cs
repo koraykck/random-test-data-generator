@@ -1,4 +1,5 @@
-﻿using Business.Strategy.Interfaces;
+﻿using Business.ManagerServices.DTOs;
+using Business.Strategy.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,19 @@ namespace Business.Strategy.Concretes
     {
         private Random _random = new Random();
 
-        public object GenerateRandomData(Dictionary<string, object> parameters)
+        public RandomDataDTO GenerateRandomData(Dictionary<string, object> parameters)
         {
-            return _random.Next(0, 2) == 1; 
+            var randValue = _random.Next(0, 2) == 1;
+            var result = new RandomDataDTO
+            {
+                TypeKey = "boolean",
+                TypeId = 0,
+                DependentValue = null,
+                DependentValueId = null,
+                Value = randValue.ToString(),
+            };
+
+            return result;
         }
     }
 }

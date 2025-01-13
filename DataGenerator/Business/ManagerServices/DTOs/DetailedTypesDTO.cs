@@ -11,5 +11,8 @@ namespace Business.ManagerServices.DTOs
         public int TypeId { get; set; }
         public string TypeKey { get; set; }
         public string GeneratorKey { get; set; }
+
+
     }
+
 }

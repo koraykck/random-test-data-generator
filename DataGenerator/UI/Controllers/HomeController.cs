@@ -1,3 +1,4 @@
+using Business.Extensions;
 using Business.ManagerServices;
 using Business.ManagerServices.Abstracts;
 using Business.ManagerServices.Concretes;
@@ -5,7 +6,9 @@ using Business.ManagerServices.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
+using UI.Helpers;
 using UI.Models;
+using UI.Models.Home;
 
 namespace UI.Controllers
 {
@@ -29,10 +32,11 @@ namespace UI.Controllers
             var model = new HomeViewModel();
 
             var allTypes = await _randomDataTypeManager.GetAllTypes();
-            model.Types = allTypes.Select(x => new SelectListItem
+            model.Types = allTypes.Select(x => new TypeModel
             {
-                Text = x.Name,
-                Value = x.TypeId.ToString(),
+                TypeName = x.Name,
+                TypeId = x.TypeId,
+                TypeKey = x.Key,
             }).ToList();
             
             return View(model);
@@ -55,7 +59,12 @@ namespace UI.Controllers
                 colModel.GeneratorType  = type.GeneratorKey;
                 var parameters = new Dictionary<string, object>
                 {
-                    {"typeId", colModel.TypeId }
+                    {"typeId", colModel.TypeId },
+                    {"min", data.Min.HasValue ? data.Min.Value : 0 },
+                    {"max", data.Max.HasValue ? data.Max.Value : 10 },
+                    {"start", data.start.HasValue ? data.start.Value : DateTime.Now},
+                    {"end", data.end.HasValue ? data.end.Value : DateTime.Now.AddDays(10) },
+                    {"length", data.length.HasValue ? data.length.Value : 10 }
                 };
                 if(colModel.GeneratorType == "db")
                 {
@@ -66,9 +75,27 @@ namespace UI.Controllers
                     colModel.Values = _dataGeneratorService.GenerateData(colModel.TypeKey, resultModel.NumberOfRecords, parameters);
                 }
                 resultModel.Cols.Add(colModel);
-            }       
-            return View();
+            }
+
+            var flattenedList = FormatHelper.FlattenColsToRow(resultModel);
+            var rules  = types.CheckRule();
+            var formattedList = FormatHelper.ApplyRules(flattenedList, rules);
+
+
+            DisplayModel viewModel = new DisplayModel();
+
+            viewModel.FieldNames = formattedList
+            .SelectMany(dict => dict.Keys)
+            .Distinct()
+            .ToList();
+
+            viewModel.Values = FormatHelper.ConvertToListOfStringDictionaries(formattedList);
+
+            return View(viewModel);
         }
+
+
+
         public IActionResult Error()
         {
 
