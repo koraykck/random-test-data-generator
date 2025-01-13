@@ -27,7 +27,12 @@ namespace Business.Strategy
         {
             if (_strategies.TryGetValue(key, out var strategyType))
             {
-                return (IDataGeneratorStrategy)_serviceProvider.GetService(strategyType);
+                var strategy = _serviceProvider.GetService(strategyType);
+                if (strategy != null)
+                {
+                    return (IDataGeneratorStrategy)strategy;
+                }
+                
             }
             throw new ArgumentException($"No strategy found for key: {key}");
         }

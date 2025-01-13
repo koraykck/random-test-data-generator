@@ -28,9 +28,8 @@ namespace Business.Strategy.Concretes
                 var _randomDataManager = scope.ServiceProvider.GetRequiredService<IRandomDataManager>();
                 
                 var result = _randomDataManager.GetOneRandomById(typeId);
-                result.Wait();
 
-                return result.Result;
+                return result;
 
             }
         }

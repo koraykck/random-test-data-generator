@@ -29,7 +29,7 @@
                             <a class="nav-link text-dark"  asp-controller="Home" asp-action="Index">Home Page</a>
                         </li>    
                         <li class="nav-item dropdown">
-                            @if (User.Identity.IsAuthenticated)
+                            @if (User.Identity != null &&  User.Identity.IsAuthenticated)
                             {
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.Name</a>
                                 <div class="dropdown-menu" style="">

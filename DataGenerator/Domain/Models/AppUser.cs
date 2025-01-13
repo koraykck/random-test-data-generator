@@ -11,7 +11,7 @@ namespace Domain.Models
 {
     public partial class AppUser : IdentityUser<int>, IEntity
     {
-        public string NameSurname { get; set; }
+        public string NameSurname { get; set; } = string.Empty;
 
         [Key]
         public int ObjectId { get; set; }      

@@ -5,7 +5,7 @@ namespace UI.Models
     public class HomeViewModel
     {
         public List<TypeModel> Types { get; set; }
-        public List<GenerateDataModel> postData { get; set; }
+        public List<GenerateDataModel> postData { get; set; } = new List<GenerateDataModel>();
         public int NumberOfData { get; set; }
     }
 

@@ -16,7 +16,7 @@ namespace Business.ManagerServices.Concretes
         {
         }
 
-        public async Task<List<RandomDataTypeDTO>> GetAllTypes()
+        public  List<RandomDataTypeDTO> GetAllTypes()
         {
             var result =  _db.RandomDataTypes.Select(x => new RandomDataTypeDTO
             {
@@ -29,12 +29,12 @@ namespace Business.ManagerServices.Concretes
             return result;
         }
 
-        public async Task<List<DetailedTypesDTO>> GetTypesByIds(List<int> ids)
+        public  List<DetailedTypesDTO> GetTypesByIds(List<int> ids)
         {
             var result = _db.RandomDataTypes.Where(x=> ids.Contains(x.ObjectId)).Select(x => new DetailedTypesDTO
             {
                 TypeId = x.ObjectId,
-                GeneratorKey = x.GeneratorType,
+                GeneratorKey = string.IsNullOrEmpty(x.GeneratorType) ? "unknown" : x.GeneratorType,
                 TypeKey = x.Key,
             }).ToList();
 

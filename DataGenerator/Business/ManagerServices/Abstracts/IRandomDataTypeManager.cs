@@ -10,8 +10,8 @@ namespace Business.ManagerServices.Abstracts
 {
     public interface IRandomDataTypeManager : IManager<RandomDataType>
     {
-        Task<List<RandomDataTypeDTO>> GetAllTypes();
-        Task<List<DetailedTypesDTO>> GetTypesByIds(List<int> ids);
+        List<RandomDataTypeDTO> GetAllTypes();
+        List<DetailedTypesDTO> GetTypesByIds(List<int> ids);
 
     }
 }
