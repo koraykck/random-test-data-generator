@@ -6,315 +6,201 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DataAccess.Configurations
 {
-    public class RandomDataConfiguration : IEntityTypeConfiguration<RandomData>
-    {
-        public void Configure(EntityTypeBuilder<RandomData> builder)
-        {
-            builder.HasData(            
-                new RandomData
-                {
-                    ObjectId = 1,
-                    Value = "David",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 2,
-                    Value = "Elizabeth",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 3,
-                    Value = "Michael",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 4,
-                    Value = "Sarah",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 5,
-                    Value = "James",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 6,
-                    Value = "Emily",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 7,
-                    Value = "John",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 8,
-                    Value = "Jessica",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 9,
-                    Value = "Robert",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 10,
-                    Value = "Ashley",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 11,
-                    Value = "William",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 12,
-                    Value = "Amanda",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 13,
-                    Value = "Charles",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 14,
-                    Value = "Sophia",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 15,
-                    Value = "Joseph",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 16,
-                    Value = "Isabella",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 17,
-                    Value = "Thomas",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 18,
-                    Value = "Olivia",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 19,
-                    Value = "Henry",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 20,
-                    Value = "Chloe",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 21,
-                    Value = "Daniel",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 22,
-                    Value = "Mia",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 23,
-                    Value = "Matthew",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 24,
-                    Value = "Ava",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 25,
-                    Value = "Christopher",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 26,
-                    Value = "Grace",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 27,
-                    Value = "Anthony",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 28,
-                    Value = "Emma",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 29,
-                    Value = "Andrew",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 30,
-                    Value = "Hannah",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 31,
-                    Value = "Joshua",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 32,
-                    Value = "Abigail",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 33,
-                    Value = "Ethan",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 34,
-                    Value = "Lily",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 35,
-                    Value = "Alexander",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 36,
-                    Value = "Samantha",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 37,
-                    Value = "Nicholas",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 38,
-                    Value = "Victoria",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 39,
-                    Value = "Logan",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 40,
-                    Value = "Zoe",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 41,
-                    Value = "Benjamin",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 42,
-                    Value = "Ella",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 43,
-                    Value = "Jacob",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 44,
-                    Value = "Natalie",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 45,
-                    Value = "Samuel",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 46,
-                    Value = "Megan",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 47,
-                    Value = "Gabriel",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 48,
-                    Value = "Sophia",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 49,
-                    Value = "Ryan",
-                    TypeId = 1
-                },
-                new RandomData
-                {
-                    ObjectId = 50,
-                    Value = "Madison",
-                    TypeId = 1
-                }
-            );
-        }
-    }
+	public class RandomDataConfiguration : IEntityTypeConfiguration<RandomData>
+	{
+		public void Configure(EntityTypeBuilder<RandomData> builder)
+		{
+			builder.HasData(
+				 
+				new RandomData { ObjectId = 1, TypeId = 2, Value = "David", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 2, TypeId = 2, Value = "Elizabeth", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 3, TypeId = 2, Value = "Michael", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 4, TypeId = 2, Value = "Sarah", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 5, TypeId = 2, Value = "James", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 6, TypeId = 2, Value = "Emily", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 7, TypeId = 2, Value = "John", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 8, TypeId = 2, Value = "Sophia", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 9, TypeId = 2, Value = "Robert", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 10, TypeId = 2, Value = "Olivia", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 11, TypeId = 2, Value = "William", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 12, TypeId = 2, Value = "Emma", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 13, TypeId = 2, Value = "Thomas", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 14, TypeId = 2, Value = "Charlotte", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 15, TypeId = 2, Value = "Daniel", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 16, TypeId = 2, Value = "Amelia", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 17, TypeId = 2, Value = "Matthew", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 18, TypeId = 2, Value = "Mia", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 19, TypeId = 2, Value = "Joseph", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 20, TypeId = 2, Value = "Isabella", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 21, TypeId = 2, Value = "Charles", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 22, TypeId = 2, Value = "Evelyn", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 23, TypeId = 2, Value = "Christopher", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 24, TypeId = 2, Value = "Harper", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 25, TypeId = 2, Value = "Anthony", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 26, TypeId = 2, Value = "Lily", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 27, TypeId = 2, Value = "Andrew", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 28, TypeId = 2, Value = "Grace", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 29, TypeId = 2, Value = "Mark", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 30, TypeId = 2, Value = "Hannah", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 31, TypeId = 2, Value = "George", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 32, TypeId = 2, Value = "Zoey", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 33, TypeId = 2, Value = "Steven", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 34, TypeId = 2, Value = "Stella", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 35, TypeId = 2, Value = "Paul", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 36, TypeId = 2, Value = "Layla", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 37, TypeId = 2, Value = "Edward", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 65 },
+				new RandomData { ObjectId = 38, TypeId = 2, Value = "Ellie", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 66 },
+				new RandomData { ObjectId = 39, TypeId = 3, Value = "Turkey", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 40, TypeId = 3, Value = "USA", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 43, TypeId = 3, Value = "Germany", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 44, TypeId = 3, Value = "Finland", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 45, TypeId = 3, Value = "England", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 46, TypeId = 3, Value = "Norway", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 47, TypeId = 3, Value = "Poland", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 48, TypeId = 3, Value = "Russia", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 49, TypeId = 3, Value = "Brazil", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 50, TypeId = 3, Value = "China", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 51, TypeId = 3, Value = "Japan", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 52, TypeId = 3, Value = "Korea", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 53, TypeId = 3, Value = "Italy", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 54, TypeId = 3, Value = "Denmark", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 55, TypeId = 3, Value = "Canada", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 56, TypeId = 3, Value = "Mexico", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 57, TypeId = 3, Value = "India", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 58, TypeId = 3, Value = "Egypt", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 59, TypeId = 3, Value = "Singapore", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 61, TypeId = 3, Value = "Switzerland", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 62, TypeId = 3, Value = "Greece", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 63, TypeId = 3, Value = "Belgium", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 64, TypeId = 3, Value = "Bulgaria", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 65, TypeId = 12, Value = "Male", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 66, TypeId = 12, Value = "Female", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 67, TypeId = 5, Value = "@domain.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 68, TypeId = 5, Value = "@mailserver.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 69, TypeId = 5, Value = "@webmail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 70, TypeId = 5, Value = "@network.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 71, TypeId = 5, Value = "@internet.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+					new RandomData { ObjectId = 72, TypeId = 5, Value = "@hostmail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 73, TypeId = 5, Value = "@servermail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 74, TypeId = 5, Value = "@custommail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 75, TypeId = 5, Value = "@securemail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 76, TypeId = 5, Value = "@fastmail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 77, TypeId = 5, Value = "@cloudmail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 78, TypeId = 5, Value = "@freemail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 79, TypeId = 5, Value = "@quickmail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 80, TypeId = 5, Value = "@smartmail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 81, TypeId = 5, Value = "@protonmail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 82, TypeId = 5, Value = "@webfastmail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 83, TypeId = 5, Value = "@trustmail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 84, TypeId = 5, Value = "@relaymail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 85, TypeId = 5, Value = "@newmailserver.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 86, TypeId = 5, Value = "@publicmail.com", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 87, TypeId = 4, Value = "Smith", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 88, TypeId = 4, Value = "Johnson", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 89, TypeId = 4, Value = "Williams", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 90, TypeId = 4, Value = "Brown", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 91, TypeId = 4, Value = "Jones", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 92, TypeId = 4, Value = "Garcia", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 93, TypeId = 4, Value = "Miller", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 94, TypeId = 4, Value = "Davis", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 95, TypeId = 4, Value = "Rodriguez", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 96, TypeId = 4, Value = "Martinez", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 97, TypeId = 4, Value = "Hernandez", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 98, TypeId = 4, Value = "Lopez", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 99, TypeId = 4, Value = "Gonzalez", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 100, TypeId = 4, Value = "Wilson", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 101, TypeId = 4, Value = "Anderson", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 102, TypeId = 4, Value = "Thomas", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 103, TypeId = 4, Value = "Taylor", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 104, TypeId = 4, Value = "Moore", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 105, TypeId = 4, Value = "Jackson", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 106, TypeId = 4, Value = "Martin", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 107, TypeId = 4, Value = "Lee", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 108, TypeId = 4, Value = "Perez", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 109, TypeId = 4, Value = "Thompson", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 110, TypeId = 4, Value = "White", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 111, TypeId = 4, Value = "Harris", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 112, TypeId = 4, Value = "Sanchez", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 113, TypeId = 4, Value = "Clark", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 114, TypeId = 4, Value = "Ramirez", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 115, TypeId = 4, Value = "Lewis", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 116, TypeId = 4, Value = "Robinson", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false },
+				new RandomData { ObjectId = 117, TypeId = 6, Value = "Istanbul", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 39 },
+				new RandomData { ObjectId = 118, TypeId = 6, Value = "Ankara", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 39 },
+				new RandomData { ObjectId = 119, TypeId = 6, Value = "Izmir", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 39 },
+					new RandomData { ObjectId = 120, TypeId = 6, Value = "New York", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 40 },
+				new RandomData { ObjectId = 121, TypeId = 6, Value = "Los Angeles", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 40 },
+				new RandomData { ObjectId = 122, TypeId = 6, Value = "Chicago", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 40 },
+				new RandomData { ObjectId = 123, TypeId = 6, Value = "Berlin", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 43 },
+				new RandomData { ObjectId = 124, TypeId = 6, Value = "Munich", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 43 },
+				new RandomData { ObjectId = 125, TypeId = 6, Value = "Hamburg", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 43 },
+				new RandomData { ObjectId = 126, TypeId = 6, Value = "Helsinki", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 44 },
+				new RandomData { ObjectId = 127, TypeId = 6, Value = "Espoo", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 44 },
+				new RandomData { ObjectId = 128, TypeId = 6, Value = "Tampere", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 44 },
+				new RandomData { ObjectId = 129, TypeId = 6, Value = "London", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 45 },
+				new RandomData { ObjectId = 130, TypeId = 6, Value = "Manchester", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 45 },
+				new RandomData { ObjectId = 131, TypeId = 6, Value = "Birmingham", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 45 },
+				new RandomData { ObjectId = 132, TypeId = 6, Value = "Oslo", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 46 },
+				new RandomData { ObjectId = 133, TypeId = 6, Value = "Bergen", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 46 },
+				new RandomData { ObjectId = 134, TypeId = 6, Value = "Trondheim", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 46 },
+				new RandomData { ObjectId = 135, TypeId = 6, Value = "Warsaw", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 47 },
+				new RandomData { ObjectId = 136, TypeId = 6, Value = "Krakow", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 47 },
+				new RandomData { ObjectId = 137, TypeId = 6, Value = "Gdansk", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 47 },
+				new RandomData { ObjectId = 138, TypeId = 6, Value = "Moscow", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 48 },
+				new RandomData { ObjectId = 139, TypeId = 6, Value = "Saint Petersburg", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 48 },
+				new RandomData { ObjectId = 140, TypeId = 6, Value = "Novosibirsk", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 48 },
+				new RandomData { ObjectId = 141, TypeId = 6, Value = "Rio de Janeiro", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 49 },
+				new RandomData { ObjectId = 142, TypeId = 6, Value = "Sao Paulo", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 49 },
+				new RandomData { ObjectId = 143, TypeId = 6, Value = "Brasilia", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 49 },
+				new RandomData { ObjectId = 144, TypeId = 6, Value = "Beijing", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 50 },
+				new RandomData { ObjectId = 145, TypeId = 6, Value = "Shanghai", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 50 },
+				new RandomData { ObjectId = 146, TypeId = 6, Value = "Guangzhou", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 50 },
+				new RandomData { ObjectId = 147, TypeId = 6, Value = "Tokyo", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 51 },
+				new RandomData { ObjectId = 148, TypeId = 6, Value = "Osaka", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 51 },
+				new RandomData { ObjectId = 149, TypeId = 6, Value = "Yokohama", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 51 },
+				new RandomData { ObjectId = 150, TypeId = 6, Value = "Seoul", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 52 },
+				new RandomData { ObjectId = 151, TypeId = 6, Value = "Busan", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 52 },
+				new RandomData { ObjectId = 152, TypeId = 6, Value = "Incheon", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 52 },
+				new RandomData { ObjectId = 153, TypeId = 6, Value = "Rome", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 53 },
+				new RandomData { ObjectId = 154, TypeId = 6, Value = "Milan", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 53 },
+				new RandomData { ObjectId = 155, TypeId = 6, Value = "Florence", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 53 },
+				new RandomData { ObjectId = 156, TypeId = 6, Value = "Copenhagen", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 54 },
+				new RandomData { ObjectId = 157, TypeId = 6, Value = "Aarhus", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 54 },
+				new RandomData { ObjectId = 158, TypeId = 6, Value = "Odense", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 54 },
+				new RandomData { ObjectId = 159, TypeId = 6, Value = "Toronto", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 55 },
+				new RandomData { ObjectId = 160, TypeId = 6, Value = "Vancouver", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 55 },
+				new RandomData { ObjectId = 161, TypeId = 6, Value = "Montreal", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 55 },
+				new RandomData { ObjectId = 162, TypeId = 6, Value = "Mexico City", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 56 },
+				new RandomData { ObjectId = 163, TypeId = 6, Value = "Guadalajara", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 56 },
+				new RandomData { ObjectId = 164, TypeId = 6, Value = "Monterrey", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 56 },
+				new RandomData { ObjectId = 165, TypeId = 6, Value = "Mumbai", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 57 },
+				new RandomData { ObjectId = 166, TypeId = 6, Value = "Delhi", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 57 },
+				new RandomData { ObjectId = 167, TypeId = 6, Value = "Bangalore", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 57 },
+				new RandomData { ObjectId = 168, TypeId = 6, Value = "Cairo", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 58 },
+				new RandomData { ObjectId = 169, TypeId = 6, Value = "Alexandria", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 58 },
+				new RandomData { ObjectId = 170, TypeId = 6, Value = "Giza", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 58 },
+				new RandomData { ObjectId = 171, TypeId = 6, Value = "Singapore", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 59 },
+				new RandomData { ObjectId = 172, TypeId = 6, Value = "Jurong", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 59 },
+				new RandomData { ObjectId = 173, TypeId = 6, Value = "Tampines", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 59 },
+				new RandomData { ObjectId = 174, TypeId = 6, Value = "Zurich", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 61 },
+				new RandomData { ObjectId = 175, TypeId = 6, Value = "Geneva", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 61 },
+				new RandomData { ObjectId = 176, TypeId = 6, Value = "Basel", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 61 },
+				new RandomData { ObjectId = 177, TypeId = 6, Value = "Athens", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 62 },
+				new RandomData { ObjectId = 178, TypeId = 6, Value = "Thessaloniki", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 62 },
+				new RandomData { ObjectId = 179, TypeId = 6, Value = "Patras", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 62 },
+				new RandomData { ObjectId = 180, TypeId = 6, Value = "Brussels", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 63 },
+				new RandomData { ObjectId = 181, TypeId = 6, Value = "Antwerp", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 63 },
+				new RandomData { ObjectId = 182, TypeId = 6, Value = "Ghent", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 63 },
+				new RandomData { ObjectId = 183, TypeId = 6, Value = "Sofia", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 64 },
+				new RandomData { ObjectId = 184, TypeId = 6, Value = "Plovdiv", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 64 },
+				new RandomData { ObjectId = 185, TypeId = 6, Value = "Varna", CreatedDate = DateTime.Now, CreatedBy = 0, IsDeleted = false, DependentRandomDataId = 64 }
+
+
+			);
+		}
+	}
 }

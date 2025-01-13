@@ -30,8 +30,9 @@ namespace DataAccess.Context
             builder.AddGlobalFilter();
             builder.Entity<AppUser>().Ignore(x => x.ObjectId);
             builder.ApplyConfiguration(new RandomDataTypeConfiguration());
+            builder.ApplyConfiguration(new RandomDataConfiguration());
 
-            var cascadeFKs = builder.Model.GetEntityTypes()
+			var cascadeFKs = builder.Model.GetEntityTypes()
                .SelectMany(t => t.GetForeignKeys())
                .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);
 
